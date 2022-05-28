@@ -24,6 +24,11 @@ ChartJS.register(
 const Index = () => {
   const { tankoins, participants } = useStasContext();
 
+  const getTimezone = () => {
+    const date = new Date();
+    return date.toString().match(/\(([A-Za-z\s].*)\)/)[1];
+  };
+
   return (
     <div className='px-8 py-4'>
       <h1 className='text-2xl'>Tanki Fund Tracker</h1>
@@ -43,7 +48,7 @@ const Index = () => {
                 const date = new Date(t.date);
                 return `${
                   date.getMonth() + 1
-                }/${date.getDate()}/${date.getFullYear()} at ${date.getHours()}:${date.getMinutes()} UTC`;
+                }/${date.getDate()}/${date.getFullYear()} at ${date.getHours()}:${date.getMinutes()} ${getTimezone()}`;
               }),
 
               datasets: [
@@ -71,7 +76,7 @@ const Index = () => {
                 const date = new Date(t.date);
                 return `${
                   date.getMonth() + 1
-                }/${date.getDate()}/${date.getFullYear()} at ${date.getHours()}:${date.getMinutes()} UTC`;
+                }/${date.getDate()}/${date.getFullYear()} at ${date.getHours()}:${date.getMinutes()} ${getTimezone()}`;
               }),
 
               datasets: [
