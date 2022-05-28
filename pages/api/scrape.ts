@@ -25,7 +25,7 @@ const scrape = async (): Promise<ScrapeResults> => {
     throw new Error('Could not find scrape results');
   }
 
-  const tankoins = parseInt(foundFund[0].replace(/[^0-9]/g, ''));
+  let tankoins = parseInt(foundFund[0].replace(/[^0-9]/g, '').substring(1));
   const participants = parseInt(foundParticipants[0].replace(/[^0-9]/g, ''));
 
   return {
