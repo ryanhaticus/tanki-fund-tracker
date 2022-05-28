@@ -35,18 +35,6 @@ const scrape = async (): Promise<ScrapeResults> => {
 };
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
-  const { authorization } = req.headers;
-
-  if (!authorization) {
-    res.status(401).json({ message: 'Unauthorized' });
-    return;
-  }
-
-  if (authorization !== `Bearer ${process.env.API_UPDATE_SECRET}`) {
-    res.status(401).json({ message: 'Unauthorized' });
-    return;
-  }
-
   const firebase = useFirebaseOnServer();
   const firestore = firebase.firestore();
 
