@@ -1,6 +1,6 @@
 import admin from 'firebase-admin';
 
-const serviceAccount = require('./account.json');
+const serviceAccount = require('./service.json');
 
 export const useFirebaseOnServer = () => {
   if (admin.apps.length === 0) {
