@@ -31,8 +31,24 @@ const StatsProvider = ({ children }: IStatsProviderProps) => {
 
       const { participants, tankoins } = data;
 
-      setTankoins(tankoins);
-      setParticipants(participants);
+      const participantsFiltered = participants.reduce((acc, curr) => {
+        const existing = acc.find((t) => t.value === curr.value);
+        if (!existing) {
+          acc.push(curr);
+        }
+        return acc;
+      }, []);
+
+      const tankoinsFiltered = tankoins.reduce((acc, curr) => {
+        const existing = acc.find((t) => t.value === curr.value);
+        if (!existing) {
+          acc.push(curr);
+        }
+        return acc;
+      }, []);
+
+      setTankoins(tankoinsFiltered);
+      setParticipants(participantsFiltered);
     })();
   }, []);
 
