@@ -32,7 +32,11 @@ const Index = () => {
         <div className='flex-grow w-full lg:w-1/2'>
           <Line
             options={{
-              responsive: true,
+              plugins: {
+                legend: {
+                  display: false,
+                },
+              },
             }}
             data={{
               labels: tankoins.map((t) => {
@@ -55,6 +59,13 @@ const Index = () => {
         </div>
         <div className='flex-grow w-full lg:w-1/2'>
           <Line
+            options={{
+              plugins: {
+                legend: {
+                  display: false,
+                },
+              },
+            }}
             data={{
               labels: tankoins.map((t) => {
                 const date = new Date(t.date);
