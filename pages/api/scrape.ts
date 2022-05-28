@@ -35,11 +35,6 @@ const scrape = async (): Promise<ScrapeResults> => {
 };
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
-  if (req.method !== 'HEAD') {
-    res.status(405).end();
-    return;
-  }
-
   const firebase = useFirebaseOnServer();
   const firestore = firebase.firestore();
 
